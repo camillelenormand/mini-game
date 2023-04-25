@@ -16,7 +16,7 @@ puts "Please enter your first name"
 user_name = gets.chomp().to_s
 
 # Display welcome message with user's name
-puts "Welcome #{user_name} ! Let's ready to fight!"
+puts "Welcome #{user_name} ! Let's get ready to fight!"
 gets.chomp()
 
 # Create user and bots
