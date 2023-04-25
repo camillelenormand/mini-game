@@ -1,3 +1,4 @@
+# app_2.rb
 require 'bundler'
 Bundler.require
 

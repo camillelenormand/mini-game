@@ -2,7 +2,7 @@ require 'bundler'
 require 'pry'
 
 Bundler.require
-
+# app.rb
 require_relative 'lib/game'
 require_relative 'lib/player'
 
