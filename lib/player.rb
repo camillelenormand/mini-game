@@ -3,7 +3,7 @@ class Player
   attr_accessor :name, :lifepoints, :dead
 
   # Initialize a new player with a name and 10 lifepoints
-  def initialize(name)
+  def initialize(name, dead = false)
     @name = name
     @lifepoints = 10
   end
@@ -58,9 +58,9 @@ class HumanPlayer < Player
   attr_accessor :weapon_level
 
   # Initialize a new human player with a name, 100 lifepoints, and a weapon level of 1
-  def initialize(name)
+  def initialize(name, lifepoints = 100)
     super(name)
-    @lifepoints = 100
+    @lifepoints = lifepoints
     @weapon_level = 1
   end
 
