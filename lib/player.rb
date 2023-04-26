@@ -6,6 +6,7 @@ class Player
   def initialize(name, dead = false)
     @name = name
     @lifepoints = 10
+    @dead = dead
   end
 
   # Display the player's name and lifepoints
@@ -41,16 +42,14 @@ class Player
   # Kill the player and set the dead attribute to true
   def die()
     puts
-    puts
     puts "😱😱😱 #{self.name} has been killed!! 😱😱😱"
-    puts
     puts
     self.dead = true 
   end
 
   # Compute the amount of damage dealt by the player
   def compute_damage
-    rand(1...6)
+    rand(1..6)
   end
 end
 
@@ -59,7 +58,7 @@ class HumanPlayer < Player
 
   # Initialize a new human player with a name, 100 lifepoints, and a weapon level of 1
   def initialize(name, lifepoints = 100)
-    super(name)
+    super(name, dead)
     @lifepoints = lifepoints
     @weapon_level = 1
   end
@@ -78,7 +77,12 @@ class HumanPlayer < Player
   def search_weapon
     self.weapon_level = rand(1...6)
     puts "You found a weapon with level #{@weapon_level}."
-    self.weapon_level >= @weapon_level ? (puts "Great I take it!"; self.weapon_level = @weapon_level) : (puts "F@*#... it's not good enough...")
+    if self.weapon_level >= @weapon_level
+      puts "Great I take it!"
+      self.weapon_level = @weapon_level
+    else
+      puts "F@*#... it's not good enough..."
+    end
   end
 
   # Search for a health pack and increase the human player's lifepoints if a health pack is found
