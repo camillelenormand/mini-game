@@ -1,7 +1,7 @@
 require_relative 'player'
 
 class Game < Player
-  attr_accessor :human_player, :enemies
+  attr_accessor :human_player, :enemies, :lifepoints, :dead
   
   def initialize(human_player, enemies)
     super(lifepoints, dead)
@@ -14,8 +14,12 @@ class Game < Player
   end
 
   def show_players
-    puts human_player.show_state
-    puts enemies.size
+    human_player.show_state
+    enemies.size
+  end
+
+  def kill_player
+    enemies.delete_at()
   end
 
   def menu
