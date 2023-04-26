@@ -39,11 +39,12 @@ puts "⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️�
 puts
 
 # Loop until the game ends
-while (bot1.lifepoints > 0 && bot2.lifepoints > 0) || user.lifepoints > 0 do
-  # Prompt the user for input
+game_over = false
+while bot1.lifepoints > 0 && bot2.lifepoints > 0 || user.lifepoints > 0 do
+  # Prompt the user 
   puts "Enter your choice"
   puts
-  puts "a. Look for a better weapon"
+  puts "a. Find better weapon"
   puts "s. Recover"
   puts
   puts "Attack a player"
@@ -56,7 +57,7 @@ while (bot1.lifepoints > 0 && bot2.lifepoints > 0) || user.lifepoints > 0 do
   user_choice = gets.chomp.downcase
   case user_choice
     when "a"
-        # User searches for a better weapon
+        # User searches a better weapon
         user.search_weapon
     when "s"
         # User recovers health
@@ -64,13 +65,13 @@ while (bot1.lifepoints > 0 && bot2.lifepoints > 0) || user.lifepoints > 0 do
     when "0"
       # User attacks bot1
       user.attacks(bot1)
-      if bot1.lifepoints <= 0
+      if bot1.lifepoints <= 0 && bot2.lifepoints <= 0
         break
       end
     when "1"
       # User attacks bot2
       user.attacks(bot2)
-      if bot2.lifepoints <= 0
+      if bot2.lifepoints <= 0 && bot1.lifepoints <= 0
         break
       end
     else
@@ -83,10 +84,9 @@ while (bot1.lifepoints > 0 && bot2.lifepoints > 0) || user.lifepoints > 0 do
   puts "Bots are now attacking!! 🤖🤖"
   gets.chomp()
   enemies.each do | bot |  
-    if bot.lifepoints <= 0
-      break
+    if bot.lifepoints > 0
+      bot.attacks(user)
     end
-    bot.attacks(user)
   end
   gets.chomp()
   # Display the current state of the players
