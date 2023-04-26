@@ -84,16 +84,19 @@ class HumanPlayer < Player
   # Search for a health pack and increase the human player's lifepoints if a health pack is found
   def search_health_pack
     r = rand(1...6)
+    #puts "#{r}"
     case r
     when 1 
       puts "Nothing found!"
     when 2..4
-      until self.lifepoints == 100 do self.lifepoints += 50 
-      puts "Well done! 50 point Health Pack found!"
+      until self.lifepoints == 100 do
+        self.lifepoints += 50 
+          puts "Well done! 50 point Health Pack found!"
       end
     when 6
-      until self.lifepoints == 100 do self.lifepoints += 80
-      puts "Well done! 80 point Health Pack found!"
+      until self.lifepoints == 100 do
+        self.lifepoints += 80
+          puts "Well done! 80 point Health Pack found!"
       end
     end
   end
