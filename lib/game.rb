@@ -13,7 +13,7 @@ class Game < Player
     lifepoints > 0 && !enemies.empty?
   end
 
-  def show_players
+  def show_players(human_player, enemies)
     human_player.show_state
     enemies.size
   end
