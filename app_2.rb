@@ -39,7 +39,7 @@ puts "⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️⚔️�
 puts
 
 # Loop until the game ends
-while bot1.lifepoints > 0 && (bot2.lifepoints > 0 || user.lifepoints > 0) do
+while (bot1.lifepoints > 0 && bot2.lifepoints > 0) || user.lifepoints > 0 do
   # Prompt the user for input
   puts "Enter your choice"
   puts
